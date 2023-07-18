@@ -1,3 +1,5 @@
+import { Stack, Button, CheckboxGroup, Checkbox } from "@chakra-ui/react";
+
 function Filter() {
 	const handleFilter = () => {
 		console.log("inside filter");
@@ -5,16 +7,21 @@ function Filter() {
 
 	return (
 		<div>
-			<label htmlFor="cardio">Cardio</label>
-			<input id="cardio" type="checkbox" />
-
-			<label htmlFor="weights">Weights</label>
-			<input id="weights" type="checkbox" />
-
-			<label htmlFor="all">All</label>
-			<input id="all" type="checkbox" />
-
-			<button onClick={handleFilter}>Filter Library 111</button>
+			<Stack direction={"row"}>
+				<CheckboxGroup
+					colorScheme="green"
+					defaultValue={["naruto", "kakashi"]}
+				>
+					<Stack spacing={[1, 5]} direction={["column", "row"]}>
+						<Checkbox value="all">All</Checkbox>
+						<Checkbox value="weights">Weights</Checkbox>
+						<Checkbox value="cardio">Cardio</Checkbox>
+					</Stack>
+				</CheckboxGroup>
+				<Button onClick={handleFilter} colorScheme="blue">
+					Filter Library
+				</Button>
+			</Stack>
 		</div>
 	);
 }
