@@ -1,0 +1,46 @@
+{
+  "exerciseLib": [
+    {
+      "id": 123452524,
+      "label": "Bench Press",
+      "difficulty": "medium",
+      "video": "vidurl",
+      "description": "lay on bench, push bar w weights up and down, billy",
+      "tags": [
+        "upperBody"
+      ]
+    },
+    {
+      "id": 223456,
+      "label": "Jumping Jacks",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "jump up and down and clap hands, billy",
+      "tags": [
+        "cardio"
+      ]
+    },
+    {
+      "id": 3456633,
+      "label": "Walking",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "put one foot in front of the other, billy",
+      "tags": [
+        "all"
+      ]
+    }
+  ],
+  "workoutList": [
+    {
+      "label": "Bench Press",
+      "difficulty": "medium",
+      "video": "vidurl",
+      "description": "lay on bench, push bar w weights up and down, billy",
+      "tags": [
+        "upperBody"
+      ],
+      "id": 1
+    }
+  ]
+}
