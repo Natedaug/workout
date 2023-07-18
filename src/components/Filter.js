@@ -1,21 +1,22 @@
 function Filter() {
-  const handleFilter = () => {
-    console.log("inside filter");
-  };
+	const handleFilter = () => {
+		console.log("inside filter");
+	};
 
-  return (
-    <div>
-      <label>Cardio</label>
-      <input type="checkbox" />
+	return (
+		<div>
+			<label htmlFor="cardio">Cardio</label>
+			<input id="cardio" type="checkbox" />
 
-      <label>Weights</label>
-      <input type="checkbox" />
+			<label htmlFor="weights">Weights</label>
+			<input id="weights" type="checkbox" />
 
-      <label>All</label>
-      <input type="checkbox" />
-      <button onClick={handleFilter}>Filter</button>
-    </div>
-  );
+			<label htmlFor="all">All</label>
+			<input id="all" type="checkbox" />
+
+			<button onClick={handleFilter}>Filter</button>
+		</div>
+	);
 }
 
 export default Filter;
