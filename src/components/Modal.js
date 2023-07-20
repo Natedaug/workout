@@ -2,9 +2,6 @@ import ReactDOM from "react-dom";
 import { useEffect } from "react";
 
 function Modal({ setShowModal, children, modalActionBar }) {
-
-
-	
 	useEffect(() => {
 		document.body.classList.add("overflow-hidden");
 
