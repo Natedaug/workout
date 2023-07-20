@@ -1,6 +1,4 @@
 function ExcerciseCard(props) {
-	console.log(411, props);
-
 	const { label, difficulty, video, description, tags } = props.exercise;
 
 	return (

@@ -42,20 +42,15 @@ function App() {
 	};
 
 	return (
-		<>
-			<div>
-				<Filter setActiveFiltersList={setActiveFiltersList} />
-				<LibraryList
-					exerciseLibrary={exerciseLibrary}
-					addExercise={addExercise}
-					activeFilters={activeFilters}
-				/>
-				<WorkoutList
-					workoutList={workoutList}
-					deleteExercise={deleteExercise}
-				/>
-			</div>
-		</>
+		<div>
+			<Filter setActiveFiltersList={setActiveFiltersList} />
+			<LibraryList
+				exerciseLibrary={exerciseLibrary}
+				addExercise={addExercise}
+				activeFilters={activeFilters}
+			/>
+			<WorkoutList workoutList={workoutList} deleteExercise={deleteExercise} />
+		</div>
 	);
 }
 
