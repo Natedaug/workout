@@ -41,6 +41,56 @@
         "upperBody"
       ],
       "id": 1
+    },
+    {
+      "label": "Jumping Jacks",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "jump up and down and clap hands, billy",
+      "tags": [
+        "cardio"
+      ],
+      "id": 2
+    },
+    {
+      "label": "Walking",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "put one foot in front of the other, billy",
+      "tags": [
+        "all"
+      ],
+      "id": 3
+    },
+    {
+      "label": "Bench Press",
+      "difficulty": "medium",
+      "video": "vidurl",
+      "description": "lay on bench, push bar w weights up and down, billy",
+      "tags": [
+        "upperBody"
+      ],
+      "id": 4
+    },
+    {
+      "label": "Bench Press",
+      "difficulty": "medium",
+      "video": "vidurl",
+      "description": "lay on bench, push bar w weights up and down, billy",
+      "tags": [
+        "upperBody"
+      ],
+      "id": 5
+    },
+    {
+      "label": "Jumping Jacks",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "jump up and down and clap hands, billy",
+      "tags": [
+        "cardio"
+      ],
+      "id": 6
     }
   ]
 }
