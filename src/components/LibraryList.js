@@ -18,7 +18,7 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 		if (visible) {
 			return (
 				<LibraryListItem
-					key={exercise.id}
+					key={i}
 					index={i}
 					exercise={exercise}
 					addExercise={addExercise}
@@ -27,7 +27,14 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 		}
 	});
 
-	return <ul>{renderedList}</ul>;
+	return (
+		<div className="border-x-2 border-indigo-500 px-4">
+			<h3 className="border-b-2 border-indigo-500 flex justify-center mb-4">
+				Library List
+			</h3>
+			<ul>{renderedList}</ul>
+		</div>
+	);
 }
 
 export default LibraryList;

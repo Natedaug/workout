@@ -20,10 +20,19 @@ function LibraryListItem({ index, exercise, addExercise }) {
 	);
 
 	return (
-		<li key={index}>
-			{exercise.label}
-			<button onClick={() => setShowModal(true)}>Info</button>
-			<button onClick={() => addExercise(exercise)}>+</button>
+		<li key={index} className="my-2 flex justify-between">
+			<button
+				className="text-emerald-600	 font-bold"
+				onClick={() => setShowModal(true)}
+			>
+				{exercise.label}
+			</button>
+			<button
+				className="rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
+				onClick={() => addExercise(exercise)}
+			>
+				+
+			</button>
 
 			{showModal && (
 				<>
