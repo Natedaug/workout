@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import LibraryList from "./components/LibraryList";
 import WorkoutList from "./components/WorkoutList";
-import axios from "axios";
 import Filter from "./components/Filter";
-import Modal from "./components/Modal";
 
 function App() {
 	const [exerciseLibrary, setExerciseLibrary] = useState([]);
 	const [workoutList, setWorkoutList] = useState([]);
 	const [activeFilters, setActiveFiltersList] = useState([]);
-	const [showModal, setShowModal] = useState(false);
 
 	const fetchExerciseLibrary = async () => {
 		const response = await axios.get("http://localhost:3001/exerciseLib");
@@ -21,7 +19,6 @@ function App() {
 	}, []);
 
 	const addExercise = async (exercise) => {
-		//console.log(exercise);
 		// exercise["libId"] = exercise["id"];
 		delete exercise["id"];
 
@@ -52,14 +49,12 @@ function App() {
 					exerciseLibrary={exerciseLibrary}
 					addExercise={addExercise}
 					activeFilters={activeFilters}
-					setShowModal={setShowModal}
 				/>
 				<WorkoutList
 					workoutList={workoutList}
 					deleteExercise={deleteExercise}
 				/>
 			</div>
-			{showModal && <Modal setShowModal={setShowModal}>test content</Modal>}
 		</>
 	);
 }
