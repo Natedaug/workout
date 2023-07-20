@@ -27,7 +27,7 @@ function Filter({ setActiveFiltersList, setIsSortReverse, isSortReverse }) {
 	const renderedCheckbox = filterOptions.map((option, index) => {
 		return (
 			<Checkbox
-				key={index}
+				key={option}
 				value={option}
 				checked={checkedState[index]}
 				onChange={() => handleCheckbox(index)}

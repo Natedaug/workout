@@ -11,23 +11,24 @@ function App() {
 	const [isSortReverse, setIsSortReverse] = useState(false);
 
 	const sortLibrary = (library) => {
+		console.log(library);
 		return library.sort(
 			(a, b) => a.label.localeCompare(b.label) * (isSortReverse ? -1 : 1)
 		);
 	};
 
 	useEffect(() => {
-		setExerciseLibrary((prevLibrary) => sortLibrary(prevLibrary));
+		setExerciseLibrary(sortLibrary(exerciseLibrary));
 	}, [isSortReverse]);
 
 	const fetchExerciseLibrary = async () => {
 		const response = await axios.get("http://localhost:3001/exerciseLib");
-		setExerciseLibrary(sortLibrary(response.data));
+		setExerciseLibrary(response.data);
 	};
 
 	useEffect(() => {
 		fetchExerciseLibrary();
-	});
+	}, []);
 
 	const addExercise = async (exercise) => {
 		//console.log(exercise);
