@@ -4,6 +4,7 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 	};
 
 	const renderedList = exerciseLibrary.map((exercise) => {
+		console.log(exercise.id);
 		let visible = true;
 		if (activeFilters.length !== 0) {
 			visible = false;
@@ -19,7 +20,7 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 
 		if (visible) {
 			return (
-				<li key={exercise.label}>
+				<li key={exercise.id}>
 					{exercise.label}
 					<button onClick={() => handleAdd(exercise)}>+</button>
 				</li>

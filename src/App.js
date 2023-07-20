@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import LibraryList from "./components/LibraryList";
 import WorkoutList from "./components/WorkoutList";
 import axios from "axios";
@@ -11,8 +11,7 @@ function App() {
 	const [isSortReverse, setIsSortReverse] = useState(false);
 
 	const sortLibrary = (library) => {
-		console.log(library);
-		return library.sort(
+		return [...library].sort(
 			(a, b) => a.label.localeCompare(b.label) * (isSortReverse ? -1 : 1)
 		);
 	};
@@ -21,18 +20,16 @@ function App() {
 		setExerciseLibrary(sortLibrary(exerciseLibrary));
 	}, [isSortReverse]);
 
-	const fetchExerciseLibrary = async () => {
+	const fetchExerciseLibrary = useCallback(async () => {
 		const response = await axios.get("http://localhost:3001/exerciseLib");
 		setExerciseLibrary(response.data);
-	};
+	});
 
 	useEffect(() => {
 		fetchExerciseLibrary();
 	}, []);
 
 	const addExercise = async (exercise) => {
-		//console.log(exercise);
-		// exercise["libId"] = exercise["id"];
 		delete exercise["id"];
 
 		const response = await axios.post(
