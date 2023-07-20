@@ -18,6 +18,7 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 		if (visible) {
 			return (
 				<LibraryListItem
+					key={exercise.id}
 					index={i}
 					exercise={exercise}
 					addExercise={addExercise}
