@@ -8,15 +8,26 @@ function App() {
 	const [exerciseLibrary, setExerciseLibrary] = useState([]);
 	const [workoutList, setWorkoutList] = useState([]);
 	const [activeFilters, setActiveFiltersList] = useState([]);
+	const [isSortReverse, setIsSortReverse] = useState(false);
+
+	const sortLibrary = (library) => {
+		return library.sort(
+			(a, b) => a.label.localeCompare(b.label) * (isSortReverse ? -1 : 1)
+		);
+	};
+
+	useEffect(() => {
+		setExerciseLibrary((prevLibrary) => sortLibrary(prevLibrary));
+	}, [isSortReverse]);
 
 	const fetchExerciseLibrary = async () => {
 		const response = await axios.get("http://localhost:3001/exerciseLib");
-		setExerciseLibrary(response.data);
+		setExerciseLibrary(sortLibrary(response.data));
 	};
 
 	useEffect(() => {
 		fetchExerciseLibrary();
-	}, []);
+	});
 
 	const addExercise = async (exercise) => {
 		//console.log(exercise);
@@ -44,16 +55,17 @@ function App() {
 
 	return (
 		<div>
-			<Filter setActiveFiltersList={setActiveFiltersList} />
+			<Filter
+				setActiveFiltersList={setActiveFiltersList}
+				setIsSortReverse={setIsSortReverse}
+				isSortReverse={isSortReverse}
+			/>
 			<LibraryList
 				exerciseLibrary={exerciseLibrary}
 				addExercise={addExercise}
 				activeFilters={activeFilters}
 			/>
-			<WorkoutList
-				workoutList={workoutList}
-				deleteExercise={deleteExercise}
-			/>
+			<WorkoutList workoutList={workoutList} deleteExercise={deleteExercise} />
 		</div>
 	);
 }

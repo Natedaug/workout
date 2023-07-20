@@ -1,11 +1,17 @@
 function Checkbox({ value, ...rest }) {
   return (
-    <span className="checkbox-wrapper">
+    <div className="checkbox-wrapper mr-4">
       <label>
-        <input type="checkbox" name={value} value={value} {...rest} />
+        <input
+          className="m-1 cursor-pointer"
+          type="checkbox"
+          name={value}
+          value={value}
+          {...rest}
+        />
         <span>{value}</span>
       </label>
-    </span>
+    </div>
   );
 }
 
