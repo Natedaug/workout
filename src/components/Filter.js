@@ -6,7 +6,7 @@ function Filter({ setActiveFiltersList, setIsSortReverse, isSortReverse }) {
 	const filterOptions = ["all", "weights", "cardio"];
 
 	const [checkedState, setCheckedState] = useState(
-		new Array(filterOptions.length).fill(false)
+		new Array(filterOptions.length).fill(false) //creates an array as long as filterOption of all false boolean values
 	);
 
 	useEffect(() => {

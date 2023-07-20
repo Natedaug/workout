@@ -4,7 +4,6 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 	};
 
 	const renderedList = exerciseLibrary.map((exercise) => {
-		console.log(exercise.id);
 		let visible = true;
 		if (activeFilters.length !== 0) {
 			visible = false;

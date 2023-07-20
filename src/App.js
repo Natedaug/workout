@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import LibraryList from "./components/LibraryList";
 import WorkoutList from "./components/WorkoutList";
 import axios from "axios";
@@ -20,17 +20,17 @@ function App() {
 		setExerciseLibrary(sortLibrary(exerciseLibrary));
 	}, [isSortReverse]);
 
-	const fetchExerciseLibrary = useCallback(async () => {
+	const fetchExerciseLibrary = async () => {
 		const response = await axios.get("http://localhost:3001/exerciseLib");
-		setExerciseLibrary(response.data);
-	});
+		setExerciseLibrary(sortLibrary(response.data));
+	};
 
 	useEffect(() => {
 		fetchExerciseLibrary();
 	}, []);
 
 	const addExercise = async (exercise) => {
-		delete exercise["id"];
+		delete exercise["id"]; //remove id from library so user worklist database adds a new id
 
 		const response = await axios.post(
 			`http://localhost:3001/workoutList`,

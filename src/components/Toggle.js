@@ -1,21 +1,16 @@
 import { GoChevronDown, GoChevronUp } from "react-icons/go";
 
 function Toggle({ label, isSortReverse, setIsSortReverse, rest }) {
-	console.log("isSortReverse: ", isSortReverse);
 	return (
-		<label className="flex mr-4">
+		<label className="flex px-4 mr-4 cursor-pointer border-r-2 border-r-indigo-500">
 			<div className="mr-1">
 				{isSortReverse ? <GoChevronUp /> : <GoChevronDown />}
 			</div>
 			<input
-				// className="sr-only"
+				className="sr-only"
 				type="checkbox"
 				defaultChecked={isSortReverse}
-				onClick={(e) => {
-					console.log(522, e);
-
-					return setIsSortReverse(!isSortReverse);
-				}}
+				onClick={(e) => setIsSortReverse(!isSortReverse)}
 				{...rest}
 			/>
 			<span />
