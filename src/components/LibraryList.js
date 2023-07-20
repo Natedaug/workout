@@ -1,9 +1,7 @@
-function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
-	const handleAdd = (exercise) => {
-		addExercise(exercise);
-	};
+import LibraryListItem from "./LibraryListItem";
 
-	const renderedList = exerciseLibrary.map((exercise) => {
+function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
+	const renderedList = exerciseLibrary.map((exercise, i) => {
 		let visible = true;
 		if (activeFilters.length !== 0) {
 			visible = false;
@@ -19,10 +17,12 @@ function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
 
 		if (visible) {
 			return (
-				<li key={exercise.id}>
-					{exercise.label}
-					<button onClick={() => handleAdd(exercise)}>+</button>
-				</li>
+				<LibraryListItem
+					key={exercise.id}
+					index={i}
+					exercise={exercise}
+					addExercise={addExercise}
+				/>
 			);
 		}
 	});

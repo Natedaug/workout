@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import LibraryList from "./components/LibraryList";
 import WorkoutList from "./components/WorkoutList";
-import axios from "axios";
 import Filter from "./components/Filter";
 
 function App() {
