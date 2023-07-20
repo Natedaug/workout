@@ -8,10 +8,21 @@ function App() {
 	const [exerciseLibrary, setExerciseLibrary] = useState([]);
 	const [workoutList, setWorkoutList] = useState([]);
 	const [activeFilters, setActiveFiltersList] = useState([]);
+	const [isSortReverse, setIsSortReverse] = useState(false);
+
+	const sortLibrary = (library) => {
+		return [...library].sort(
+			(a, b) => a.label.localeCompare(b.label) * (isSortReverse ? -1 : 1)
+		);
+	};
+
+	useEffect(() => {
+		setExerciseLibrary(sortLibrary(exerciseLibrary));
+	}, [isSortReverse]);
 
 	const fetchExerciseLibrary = async () => {
 		const response = await axios.get("http://localhost:3001/exerciseLib");
-		setExerciseLibrary(response.data);
+		setExerciseLibrary(sortLibrary(response.data));
 	};
 
 	useEffect(() => {
@@ -19,9 +30,7 @@ function App() {
 	}, []);
 
 	const addExercise = async (exercise) => {
-		//console.log(exercise);
-		// exercise["libId"] = exercise["id"];
-		delete exercise["id"];
+		delete exercise["id"]; //remove id from library so user worklist database adds a new id
 
 		const response = await axios.post(
 			`http://localhost:3001/workoutList`,
@@ -44,16 +53,17 @@ function App() {
 
 	return (
 		<div>
-			<Filter setActiveFiltersList={setActiveFiltersList} />
+			<Filter
+				setActiveFiltersList={setActiveFiltersList}
+				setIsSortReverse={setIsSortReverse}
+				isSortReverse={isSortReverse}
+			/>
 			<LibraryList
 				exerciseLibrary={exerciseLibrary}
 				addExercise={addExercise}
 				activeFilters={activeFilters}
 			/>
-			<WorkoutList
-				workoutList={workoutList}
-				deleteExercise={deleteExercise}
-			/>
+			<WorkoutList workoutList={workoutList} deleteExercise={deleteExercise} />
 		</div>
 	);
 }
