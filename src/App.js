@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import LibraryList from "./components/LibraryList";
 import WorkoutList from "./components/WorkoutList";
@@ -29,6 +29,15 @@ function App() {
 		fetchExerciseLibrary();
 	}, []);
 
+	const fetchworkoutList = useCallback(async () => {
+		const response = await axios.get("http://localhost:3001/workoutList");
+		setWorkoutList(response.data);
+	}, []);
+
+	useEffect(() => {
+		fetchworkoutList();
+	}, [fetchworkoutList]);
+
 	const addExercise = async (exercise) => {
 		delete exercise["id"]; //remove id from library so user worklist database adds a new id
 
@@ -58,12 +67,17 @@ function App() {
 				setIsSortReverse={setIsSortReverse}
 				isSortReverse={isSortReverse}
 			/>
-			<LibraryList
-				exerciseLibrary={exerciseLibrary}
-				addExercise={addExercise}
-				activeFilters={activeFilters}
-			/>
-			<WorkoutList workoutList={workoutList} deleteExercise={deleteExercise} />
+			<div className="flex space-x-8 ml-4">
+				<LibraryList
+					exerciseLibrary={exerciseLibrary}
+					addExercise={addExercise}
+					activeFilters={activeFilters}
+				/>
+				<WorkoutList
+					workoutList={workoutList}
+					deleteExercise={deleteExercise}
+				/>
+			</div>
 		</div>
 	);
 }
