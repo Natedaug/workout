@@ -1,4 +1,8 @@
-function WorkoutList({ workoutList, deleteExercise }) {
+import useExerciseContext from "../hooks/use-exercise-context";
+
+function WorkoutList() {
+	const { workoutList, deleteExercise } = useExerciseContext();
+
 	const handleDelete = (exercise) => {
 		deleteExercise(exercise);
 	};

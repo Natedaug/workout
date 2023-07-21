@@ -1,6 +1,9 @@
 import LibraryListItem from "./LibraryListItem";
+import useExerciseContext from "../hooks/use-exercise-context";
 
-function LibraryList({ exerciseLibrary, addExercise, activeFilters }) {
+function LibraryList() {
+	const { exerciseLibrary, addExercise, activeFilters } = useExerciseContext();
+
 	const renderedList = exerciseLibrary.map((exercise, i) => {
 		let visible = true;
 		if (activeFilters.length !== 0) {
