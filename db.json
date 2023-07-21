@@ -31,46 +31,5 @@
       ]
     }
   ],
-  "workoutList": [
-    {
-      "label": "Bench Press",
-      "difficulty": "medium",
-      "video": "vidurl",
-      "description": "lay on bench, push bar w weights up and down, billy",
-      "tags": [
-        "upperBody"
-      ],
-      "id": 1
-    },
-    {
-      "label": "Jumping Jacks",
-      "difficulty": "easy",
-      "video": "vidurl",
-      "description": "jump up and down and clap hands, billy",
-      "tags": [
-        "cardio"
-      ],
-      "id": 2
-    },
-    {
-      "label": "Bench Press",
-      "difficulty": "medium",
-      "video": "vidurl",
-      "description": "lay on bench, push bar w weights up and down, billy",
-      "tags": [
-        "upperBody"
-      ],
-      "id": 3
-    },
-    {
-      "label": "Walking",
-      "difficulty": "easy",
-      "video": "vidurl",
-      "description": "put one foot in front of the other, billy",
-      "tags": [
-        "all"
-      ],
-      "id": 4
-    }
-  ]
+  "workoutList": []
 }
