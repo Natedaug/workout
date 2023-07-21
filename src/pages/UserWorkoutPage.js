@@ -1,9 +1,14 @@
 import Navbar from "../components/Navbar";
+import WorkoutList from "../components/usersWorkout/WorkoutList";
 
 function UserWorkoutPage(props) {
 	return (
 		<div>
-			<div>Userworkout Page</div>
+			<div>
+				<div className="flex space-x-8 ml-4">
+					<WorkoutList />
+				</div>
+			</div>
 		</div>
 	);
 }
