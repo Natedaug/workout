@@ -1,11 +1,23 @@
 import { Link } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar() {
+	const routes = [
+		{ label: "Home", path: "/" },
+		{ label: "My Workout", path: "/userWorkout" },
+	];
+
+	const renderedRoutes = routes.map((route) => (
+		<li>
+			<Link to={route.path}>{route.label}</Link>
+		</li>
+	));
+
 	return (
-		<div>
-			<Link to="/">Home</Link>
-			<Link to="/userWorkout">My Workout</Link>
-		</div>
+		<header>
+			<nav>
+				<ul>{renderedRoutes}</ul>
+			</nav>
+		</header>
 	);
 }
 

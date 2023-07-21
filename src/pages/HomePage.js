@@ -63,7 +63,6 @@ function HomePage(props) {
 
 	return (
 		<div>
-			<Navbar />
 			<Filter
 				setActiveFiltersList={setActiveFiltersList}
 				setIsSortReverse={setIsSortReverse}

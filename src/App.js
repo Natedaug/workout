@@ -1,14 +1,21 @@
 //routing
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./pages/RootLayout";
 import HomePage from "./pages/HomePage";
 import UserWorkoutPage from "./pages/UserWorkoutPage";
 
-function App() {
-	const router = createBrowserRouter([
-		{ path: "/", element: <HomePage /> },
-		{ path: "/userWorkout", element: <UserWorkoutPage /> },
-	]);
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <RootLayout />,
+		children: [
+			{ path: "/", element: <HomePage /> },
+			{ path: "/userWorkout", element: <UserWorkoutPage /> },
+		],
+	},
+]);
 
+function App() {
 	return <RouterProvider router={router} />;
 }
 
