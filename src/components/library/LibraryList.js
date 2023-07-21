@@ -1,5 +1,5 @@
+import useExerciseContext from "../../hooks/use-exercise-context";
 import LibraryListItem from "./LibraryListItem";
-import useExerciseContext from "../hooks/use-exercise-context";
 
 function LibraryList() {
 	const { exerciseLibrary, addExercise, activeFilters } = useExerciseContext();

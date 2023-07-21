@@ -33,12 +33,12 @@
   ],
   "workoutList": [
     {
-      "label": "Walking",
-      "difficulty": "easy",
+      "label": "Bench Press",
+      "difficulty": "medium",
       "video": "vidurl",
-      "description": "put one foot in front of the other, billy",
+      "description": "lay on bench, push bar w weights up and down, billy",
       "tags": [
-        "all"
+        "upperBody"
       ],
       "id": 1
     },
@@ -61,6 +61,16 @@
         "upperBody"
       ],
       "id": 3
+    },
+    {
+      "label": "Walking",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "put one foot in front of the other, billy",
+      "tags": [
+        "all"
+      ],
+      "id": 4
     }
   ]
 }

@@ -1,4 +1,4 @@
-import useExerciseContext from "../hooks/use-exercise-context";
+import useExerciseContext from "../../hooks/use-exercise-context";
 
 function WorkoutList() {
 	const { workoutList, deleteExercise } = useExerciseContext();

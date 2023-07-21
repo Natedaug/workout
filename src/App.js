@@ -1,45 +1,21 @@
-import { useEffect } from "react";
-import LibraryList from "./components/LibraryList";
-import WorkoutList from "./components/WorkoutList";
-import Filter from "./components/Filter";
-import useExerciseContext from "./hooks/use-exercise-context";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./pages/RootLayout";
+import HomePage from "./pages/HomePage";
+import UserWorkoutPage from "./pages/UserWorkoutPage";
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <RootLayout />,
+		children: [
+			{ path: "/", element: <HomePage /> },
+			{ path: "/userWorkout", element: <UserWorkoutPage /> },
+		],
+	},
+]);
 
 function App() {
-	const {
-		fetchExerciseLibrary,
-		fetchworkoutList,
-		isSortReverse,
-		exerciseLibrary,
-		setExerciseLibrary,
-	} = useExerciseContext();
-
-	const sortLibrary = (library) => {
-		return [...library].sort(
-			(a, b) => a.label.localeCompare(b.label) * (isSortReverse ? -1 : 1)
-		);
-	};
-
-	useEffect(() => {
-		setExerciseLibrary(sortLibrary(exerciseLibrary));
-	}, [isSortReverse]);
-
-	useEffect(() => {
-		fetchExerciseLibrary();
-	}, []);
-
-	useEffect(() => {
-		fetchworkoutList();
-	}, [fetchworkoutList]);
-
-	return (
-		<div>
-			<Filter />
-			<div className="flex space-x-8 ml-4">
-				<LibraryList />
-				<WorkoutList />
-			</div>
-		</div>
-	);
+	return <RouterProvider router={router} />;
 }
 
 export default App;
