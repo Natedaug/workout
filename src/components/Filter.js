@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
 import Toggle from "./Toggle";
+import useExerciseContext from "../hooks/use-exercise-context";
 
-function Filter({ setActiveFiltersList, setIsSortReverse, isSortReverse }) {
+function Filter() {
+	const { setActiveFiltersList } = useExerciseContext();
 	const filterOptions = ["all", "weights", "cardio"];
 
 	const [checkedState, setCheckedState] = useState(
@@ -37,11 +39,7 @@ function Filter({ setActiveFiltersList, setIsSortReverse, isSortReverse }) {
 
 	return (
 		<form className="flex m-4 w-fit border-b-2 border-b-indigo-500">
-			<Toggle
-				label="sort"
-				isSortReverse={isSortReverse}
-				setIsSortReverse={setIsSortReverse}
-			/>
+			<Toggle label="sort" />
 			{renderedCheckbox}
 		</form>
 	);
