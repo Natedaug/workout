@@ -1,7 +1,7 @@
 import axios from "axios";
 import Filter from "../components/Filter";
-import LibraryList from "../components/LibraryList";
-import WorkoutList from "../components/WorkoutList";
+import LibraryList from "../components/library/LibraryList";
+import WorkoutList from "../components/usersWorkout/WorkoutList";
 import { useCallback, useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 
