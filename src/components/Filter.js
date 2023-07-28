@@ -5,7 +5,22 @@ import useExerciseContext from "../hooks/use-exercise-context";
 
 function Filter() {
 	const { setActiveFiltersList } = useExerciseContext();
-	const filterOptions = ["all", "weights", "cardio"];
+	const filterOptions = [
+		"all",
+		"weights",
+		"cardio",
+		"Barbell",
+		"Dumbbells",
+		"Kettlebells",
+		"Stretches",
+		"Cables",
+		"Band",
+		"TRX",
+		"Bodyweight",
+		"Yoga",
+		"Machine",
+		"MedicineBall",
+	];
 
 	const [checkedState, setCheckedState] = useState(
 		new Array(filterOptions.length).fill(false) //creates an array as long as filterOption of all false boolean values
@@ -38,7 +53,7 @@ function Filter() {
 	});
 
 	return (
-		<form className="flex m-4 w-fit border-b-2 border-b-indigo-500">
+		<form className="flex flex-wrap	max-w-md m-4 w-fit border-b-2 border-b-indigo-500">
 			<Toggle label="sort" />
 			{renderedCheckbox}
 		</form>
