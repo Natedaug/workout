@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
-import Toggle from "./Toggle";
 import useExerciseContext from "../hooks/use-exercise-context";
 
 function Filter() {
@@ -53,10 +52,12 @@ function Filter() {
 	});
 
 	return (
-		<form className="flex flex-wrap	max-w-md m-4 w-fit border-b-2 border-b-indigo-500">
-			<Toggle label="sort" />
-			{renderedCheckbox}
-		</form>
+		<>
+			<h3 className="mt-4 font-bold text-indigo-500 ml-4">Category:</h3>
+			<form className="flex flex-wrap	max-w-md ml-4 mb-4 w-fit border-2 border-indigo-500 p-2 justify-center">
+				{renderedCheckbox}
+			</form>
+		</>
 	);
 }
 

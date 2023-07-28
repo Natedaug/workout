@@ -119,6 +119,27 @@
         ]
       },
       "id": 5
+    },
+    {
+      "label": "Kettlebell Preacher Curl",
+      "difficulty": "Intermediate",
+      "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-kettlebell-preacher-curl-front.mp4#t=0.1",
+      "description": "",
+      "steps": [
+        "Stand behind a bench, with your chest leaning over the edge of the bench.",
+        "With one arm resting on the bench, hold the kettlebell, bending the arm at the elbow.",
+        "Lower your arm using the bench as a guide, keeping your forearm straight.",
+        "Return to the starting position and repeat."
+      ],
+      "tags": [
+        "Kettlebells"
+      ],
+      "taget": {
+        "Primary": [
+          "Biceps"
+        ]
+      },
+      "id": 6
     }
   ],
   "muscleWikiDB": [

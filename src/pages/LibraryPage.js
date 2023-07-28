@@ -32,7 +32,9 @@ function HomePage() {
 	};
 
 	useEffect(() => {
+		console.log("...sorting");
 		setExerciseLibrary(sortLibrary(exerciseLibrary));
+		setNewExerciseLibrary(sortLibrary(newExerciseLibrary));
 	}, [isSortReverse]);
 
 	useEffect(() => {

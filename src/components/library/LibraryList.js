@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import LibraryListItem from "./LibraryListItem";
+import Toggle from "../Toggle";
 
 function LibraryList({ newExerciseLibrary }) {
 	const { exerciseLibrary, addExercise, activeFilters } = useExerciseContext();
@@ -47,7 +48,8 @@ function LibraryList({ newExerciseLibrary }) {
 
 	return (
 		<div className="border-x-2 border-indigo-500 px-4 max-h-96 overflow-auto min-w-[520px]">
-			<h3 className="border-b-2 border-indigo-500 flex justify-center mb-4">
+			<h3 className="relative	border-b-2 border-indigo-500 flex justify-center mb-4">
+				<Toggle label="sort" />
 				<button
 					onClick={() => setdb(!db)}
 					className={

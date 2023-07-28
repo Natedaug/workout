@@ -22,7 +22,7 @@ function LibraryListItem({ index, exercise, addExercise }) {
 	return (
 		<li key={index} className="my-2 flex justify-between">
 			<button
-				className="text-emerald-600	 font-bold"
+				className="text-emerald-600	font-bold w-full text-left hover:bg-indigo-200"
 				onClick={() => setShowModal(true)}
 			>
 				{exercise.label}
