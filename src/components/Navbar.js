@@ -6,8 +6,8 @@ function Navbar() {
 		{ label: "My Workout", path: "/userWorkout" },
 	];
 
-	const renderedRoutes = routes.map((route) => (
-		<li>
+	const renderedRoutes = routes.map((route, i) => (
+		<li key={i}>
 			<Link to={route.path}>{route.label}</Link>
 		</li>
 	));

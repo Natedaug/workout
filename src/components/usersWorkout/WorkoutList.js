@@ -26,7 +26,7 @@ function WorkoutList() {
 
 	return (
 		<div className="border-x-2 border-indigo-500 px-4">
-			<h3 className="border-b-2 border-indigo-500 flex justify-center mb-4">
+			<h3 className="border-b-2 border-indigo-500 flex justify-center mb-4 pb-4 font-bold text-indigo-500">
 				User Workout List
 			</h3>
 			<ol>{renderedList}</ol>

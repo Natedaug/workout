@@ -12,10 +12,10 @@ function LibraryList({ newExerciseLibrary }) {
 		customDBClass = "";
 	if (!db) {
 		muscleDBClass = " bg-emerald-300";
-		customDBClass = "";
+		customDBClass = " bg-indigo-300";
 		listToDisplay = [...newExerciseLibrary];
 	} else {
-		muscleDBClass = "";
+		muscleDBClass = " bg-indigo-300";
 		customDBClass = " bg-emerald-300";
 		listToDisplay = [...exerciseLibrary];
 	}
@@ -53,19 +53,21 @@ function LibraryList({ newExerciseLibrary }) {
 				<button
 					onClick={() => setdb(!db)}
 					className={
-						"transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500  bg-indigo-300" +
+						"transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500" +
 						muscleDBClass
 					}
+					disabled={!db}
 				>
 					MuscleWikiDB
 				</button>
-				Library List
+				<div className="font-bold text-indigo-500">Library List</div>
 				<button
 					onClick={() => setdb(!db)}
 					className={
-						"transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300" +
+						"transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500" +
 						customDBClass
 					}
+					disabled={db}
 				>
 					CustomDB
 				</button>
