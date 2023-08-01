@@ -1,12 +1,30 @@
+import { useEffect, useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
+import { GoCheck } from "react-icons/go";
+import { useLocation } from "react-router-dom";
+import WorkoutListItem from "./WorkoutListItem";
 
 function WorkoutList() {
+	const location = useLocation();
 	const { workoutList, deleteExercise } = useExerciseContext();
+	const [onMyWorkoutPage, setOnMyWorkoutPage] = useState(false);
+	// const [excerciseCompleted, setExcerciseCompleted] = useState(false);
+
+	const checkForUserPage = () => {
+		if (location.pathname === "/userWorkout") {
+			setOnMyWorkoutPage(true);
+		}
+	};
+
+	useEffect(() => {
+		checkForUserPage();
+	}, []);
 
 	const handleDelete = (exercise) => {
 		deleteExercise(exercise);
 	};
 
+<<<<<<< HEAD
 	const renderedList = workoutList.map((exercise, i) => {
 		return (
 			<li
@@ -23,6 +41,16 @@ function WorkoutList() {
 			</li>
 		);
 	});
+=======
+	const renderedList = workoutList.map((exercise, i) => (
+		<WorkoutListItem
+			key={i}
+			exercise={exercise}
+			onMyWorkoutPage={onMyWorkoutPage}
+			handleDelete={handleDelete}
+		/>
+	));
+>>>>>>> 9b49274c12df20c4029ca36b4eef6bb8be087f05
 
 	return (
 		<div className="border-x-2 border-indigo-500 px-4">

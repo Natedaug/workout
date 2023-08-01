@@ -33,6 +33,7 @@
   ],
   "workoutList": [
     {
+<<<<<<< HEAD
       "label": "Barbell Snatch Grip Deadlift",
       "difficulty": "Advanced",
       "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-snatch-grip-deadlift-front.mp4#t=0.1",
@@ -80,10 +81,19 @@
         "Stretches",
         null,
         "None"
+=======
+      "label": "Walking",
+      "difficulty": "easy",
+      "video": "vidurl",
+      "description": "put one foot in front of the other, billy",
+      "tags": [
+        "all"
+>>>>>>> 9b49274c12df20c4029ca36b4eef6bb8be087f05
       ],
       "id": 3
     },
     {
+<<<<<<< HEAD
       "label": "Kettlebell Concentration Curl",
       "difficulty": "Intermediate",
       "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-kettlebell-concentration-curl-front.mp4#t=0.1",
@@ -21964,6 +21974,26 @@
           "Obliques"
         ]
       }
+=======
+      "label": "Bench Press",
+      "difficulty": "medium",
+      "video": "vidurl",
+      "description": "lay on bench, push bar w weights up and down, billy",
+      "tags": [
+        "upperBody"
+      ],
+      "id": 5
+    },
+    {
+      "label": "Bench Press",
+      "difficulty": "medium",
+      "video": "vidurl",
+      "description": "lay on bench, push bar w weights up and down, billy",
+      "tags": [
+        "upperBody"
+      ],
+      "id": 7
+>>>>>>> 9b49274c12df20c4029ca36b4eef6bb8be087f05
     }
   ]
 }
