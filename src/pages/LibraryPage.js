@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import LibraryList from "../components/library/LibraryList";
-import WorkoutList from "../components/usersWorkout/WorkoutList";
+import UserWorkoutList from "../components/usersWorkout/UserWorkoutList";
 import Filter from "../components/Filter";
 import useExerciseContext from "../hooks/use-exercise-context";
 
@@ -49,7 +49,7 @@ function HomePage() {
 			<Filter />
 			<div className="flex space-x-8 ml-4">
 				<LibraryList newExerciseLibrary={newExerciseLibrary} />
-				<WorkoutList />
+				<UserWorkoutList />
 			</div>
 		</div>
 	);

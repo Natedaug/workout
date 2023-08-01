@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
+import { libraryPath, userWorkoutPath } from "../pages/pathways";
 function Navbar() {
 	const routes = [
-		{ label: "Home", path: "/" },
-		{ label: "My Workout", path: "/userWorkout" },
+		{ label: "Home", path: libraryPath },
+		{ label: "My Workout", path: userWorkoutPath },
 	];
 
 	const renderedRoutes = routes.map((route, i) => (
