@@ -24,24 +24,6 @@ function WorkoutList() {
 		deleteExercise(exercise);
 	};
 
-<<<<<<< HEAD
-	const renderedList = workoutList.map((exercise, i) => {
-		return (
-			<li
-				key={i}
-				className="transition-all duration-1000	my-2 flex justify-between"
-			>
-				{exercise.label}
-				<button
-					className="rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
-					onClick={() => handleDelete(exercise)}
-				>
-					-
-				</button>
-			</li>
-		);
-	});
-=======
 	const renderedList = workoutList.map((exercise, i) => (
 		<WorkoutListItem
 			key={i}
@@ -50,7 +32,6 @@ function WorkoutList() {
 			handleDelete={handleDelete}
 		/>
 	));
->>>>>>> 9b49274c12df20c4029ca36b4eef6bb8be087f05
 
 	return (
 		<div className="border-x-2 border-indigo-500 px-4">
