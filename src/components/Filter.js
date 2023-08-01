@@ -1,11 +1,25 @@
 import { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
-import Toggle from "./Toggle";
 import useExerciseContext from "../hooks/use-exercise-context";
 
 function Filter() {
 	const { setActiveFiltersList } = useExerciseContext();
-	const filterOptions = ["all", "weights", "cardio"];
+	const filterOptions = [
+		"all",
+		"weights",
+		"cardio",
+		"Barbell",
+		"Dumbbells",
+		"Kettlebells",
+		"Stretches",
+		"Cables",
+		"Band",
+		"TRX",
+		"Bodyweight",
+		"Yoga",
+		"Machine",
+		"MedicineBall",
+	];
 
 	const [checkedState, setCheckedState] = useState(
 		new Array(filterOptions.length).fill(false) //creates an array as long as filterOption of all false boolean values
@@ -38,10 +52,12 @@ function Filter() {
 	});
 
 	return (
-		<form className="flex m-4 w-fit border-b-2 border-b-indigo-500">
-			<Toggle label="sort" />
-			{renderedCheckbox}
-		</form>
+		<>
+			<h3 className="mt-4 font-bold text-indigo-500 ml-4">Filter:</h3>
+			<form className="flex flex-wrap	max-w-md ml-4 mb-4 w-fit border-2 border-indigo-500 p-2 justify-center">
+				{renderedCheckbox}
+			</form>
+		</>
 	);
 }
 
