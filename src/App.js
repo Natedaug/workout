@@ -3,6 +3,7 @@ import RootLayout from "./pages/RootLayout";
 import LibraryPage from "./pages/LibraryPage";
 import ErrorPage from "./pages/ErrorPage";
 import UserWorkoutPage from "./pages/UserWorkoutPage";
+import { libraryPath, userWorkoutPath } from "./pages/pathways";
 
 const router = createBrowserRouter([
 	{
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
 		element: <RootLayout />,
 		errorElement: <ErrorPage />,
 		children: [
-			{ path: "/", element: <LibraryPage /> },
-			{ path: "/userWorkout", element: <UserWorkoutPage /> },
+			{ path: libraryPath, element: <LibraryPage /> },
+			{ path: userWorkoutPath, element: <UserWorkoutPage /> },
 		],
 	},
 ]);

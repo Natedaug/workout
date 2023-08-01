@@ -1,11 +1,19 @@
-import { useState } from "react";
 import { GoCheck } from "react-icons/go";
+import { useState } from "react";
+import useExerciseContext from "../../hooks/use-exercise-context";
 
 function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
-	const [excerciseCompleted, setExcerciseCompleted] = useState(false);
+	const { completedExercise } = useExerciseContext();
+	const [exerciseCompleted, setExerciseCompleted] = useState(
+		exercise.completed
+	);
 
-	const handleCompleted = () => {
-		setExcerciseCompleted(true);
+	const handleCompleted = (exercise) => {
+		// allow 1 Btn click
+		if (exerciseCompleted) return;
+
+		completedExercise(exercise);
+		setExerciseCompleted(true);
 	};
 
 	return (
@@ -15,17 +23,17 @@ function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
 			{onMyWorkoutPage && (
 				<button
 					className={
-						excerciseCompleted
+						exerciseCompleted
 							? "rounded-full ml-4 border-2 border-green-500 bg-green-300 px-4"
 							: "rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
 					}
-					onClick={() => handleCompleted()}
+					onClick={() => handleCompleted(exercise)}
 				>
 					<GoCheck />
 				</button>
 			)}
 
-			{!excerciseCompleted && (
+			{!exerciseCompleted && (
 				<button
 					className="rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
 					onClick={() => handleDelete(exercise)}

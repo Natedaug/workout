@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
-import { GoCheck } from "react-icons/go";
 import { useLocation } from "react-router-dom";
-import WorkoutListItem from "./WorkoutListItem";
+import UserWorkoutListItem from "./UserWorkoutListItem";
+import { userWorkoutPath } from "../../pages/pathways";
 
-function WorkoutList() {
+function UserWorkoutList() {
 	const location = useLocation();
 	const { workoutList, deleteExercise } = useExerciseContext();
 	const [onMyWorkoutPage, setOnMyWorkoutPage] = useState(false);
-	// const [excerciseCompleted, setExcerciseCompleted] = useState(false);
 
 	const checkForUserPage = () => {
-		if (location.pathname === "/userWorkout") {
+		if (location.pathname === userWorkoutPath) {
 			setOnMyWorkoutPage(true);
 		}
 	};
@@ -24,8 +23,12 @@ function WorkoutList() {
 		deleteExercise(exercise);
 	};
 
+	const workoutComplete = () => {
+		console.log(411, " Workout is finished");
+	};
+
 	const renderedList = workoutList.map((exercise, i) => (
-		<WorkoutListItem
+		<UserWorkoutListItem
 			key={i}
 			exercise={exercise}
 			onMyWorkoutPage={onMyWorkoutPage}
@@ -33,14 +36,26 @@ function WorkoutList() {
 		/>
 	));
 
+	const renderWorkoutCompleteBtn = (
+		<div className="flex justify-center">
+			<button
+				className="rounded-full ml-4 border-2 border-green-500 bg-green-400 px-4"
+				onClick={workoutComplete}
+			>
+				Workout Completed
+			</button>
+		</div>
+	);
+
 	return (
 		<div className="border-x-2 border-indigo-500 px-4">
 			<h3 className="border-b-2 border-indigo-500 flex justify-center mb-4">
 				User Workout List
 			</h3>
 			<ol>{renderedList}</ol>
+			{renderWorkoutCompleteBtn}
 		</div>
 	);
 }
 
-export default WorkoutList;
+export default UserWorkoutList;
