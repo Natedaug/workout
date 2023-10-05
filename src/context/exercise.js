@@ -47,6 +47,25 @@ function Provider({ children }) {
 		setWorkoutList(updatedWorkoutList);
 	};
 
+	const completedExercise = async (exercise) => {
+		const response = await axios.put(
+			`http://localhost:3001/workoutList/${exercise.id}`,
+			{
+				...exercise,
+				completed: true,
+			}
+		);
+
+		const updatedWorkoutList = workoutList.map((workoutItem) => {
+			if (workoutItem === exercise.id) {
+				return response.data;
+			}
+			return workoutItem;
+		});
+
+		setWorkoutList(updatedWorkoutList);
+	};
+
 	const valueToShare = {
 		exerciseLibrary,
 		workoutList,
@@ -54,6 +73,7 @@ function Provider({ children }) {
 		fetchworkoutList,
 		addExercise,
 		deleteExercise,
+		completedExercise,
 		activeFilters,
 		isSortReverse,
 		setIsSortReverse,

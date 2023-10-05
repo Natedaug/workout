@@ -5,7 +5,7 @@ function Toggle({ label, rest }) {
 	const { isSortReverse, setIsSortReverse } = useExerciseContext();
 
 	return (
-		<label className="flex px-4 mr-4 cursor-pointer border-r-2 border-r-indigo-500">
+		<label className="absolute left-0 flex pr-4 mr-4 cursor-pointer border-r-2 border-r-indigo-500">
 			<div className="mr-1">
 				{isSortReverse ? <GoChevronUp /> : <GoChevronDown />}
 			</div>
