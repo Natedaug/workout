@@ -45,13 +45,15 @@ function HomePage() {
 	}, [fetchworkoutList]);
 
 	return (
-		<div>
-			<Filter />
-			<div className="flex space-x-8 ml-4">
+		<>
+			<div className="flex justify-center my-10">
+				<Filter />
+			</div>
+			<div className="flex space-x-8 justify-center">
 				<LibraryList newExerciseLibrary={newExerciseLibrary} />
 				<UserWorkoutList />
 			</div>
-		</div>
+		</>
 	);
 }
 
