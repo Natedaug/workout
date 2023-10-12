@@ -52,12 +52,12 @@ function Filter() {
 	});
 
 	return (
-		<>
+		<div className="flex justify-center my-10">
 			<h3 className="mt-4 font-bold text-indigo-500 ml-4">Filter:</h3>
 			<form className="flex flex-wrap	max-w-md ml-4 mb-4 w-fit border-2 border-indigo-500 p-2 justify-center">
 				{renderedCheckbox}
 			</form>
-		</>
+		</div>
 	);
 }
 

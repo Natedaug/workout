@@ -21,7 +21,7 @@ function HomePage() {
 		const response = await axios.get("http://localhost:3001/muscleWikiDB");
 		setNewExerciseLibrary(response.data);
 	};
-	
+
 	useEffect(() => {
 		fetchNewExerciseLibrary();
 	}, []);
@@ -47,9 +47,7 @@ function HomePage() {
 
 	return (
 		<>
-			<div className="flex justify-center my-10">
-				<Filter />
-			</div>
+			<Filter />
 			<div className="flex space-x-8 justify-center">
 				<LibraryList newExerciseLibrary={newExerciseLibrary} />
 				<UserWorkoutList />
