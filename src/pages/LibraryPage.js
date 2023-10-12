@@ -14,13 +14,14 @@ function HomePage() {
 		setExerciseLibrary,
 	} = useExerciseContext();
 
-	//new api library
+	//new api library newExerciseLibrary === "muscleWikiDB"
 	const [newExerciseLibrary, setNewExerciseLibrary] = useState([]);
 
 	const fetchNewExerciseLibrary = async () => {
 		const response = await axios.get("http://localhost:3001/muscleWikiDB");
 		setNewExerciseLibrary(response.data);
 	};
+	
 	useEffect(() => {
 		fetchNewExerciseLibrary();
 	}, []);

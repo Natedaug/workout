@@ -16,23 +16,27 @@ function Provider({ children }) {
 	};
 
 	const fetchExerciseLibrary = async () => {
+		//Our custom lib data
 		const response = await axios.get("http://localhost:3001/exerciseLib");
 		setExerciseLibrary(sortLibrary(response.data));
 	};
 
 	const fetchworkoutList = useCallback(async () => {
+		// the users workoutList
 		const response = await axios.get("http://localhost:3001/workoutList");
 		setWorkoutList(response.data);
 	}, []);
 
 	const addExercise = async (exercise) => {
-		delete exercise["id"]; //remove id from library so user worklist database adds a new id
+		delete exercise["id"]; //remove id from muscleWikiDB, as user worklist database adds a new id
 
+		// updating db.json
 		const response = await axios.post(
 			`http://localhost:3001/workoutList`,
 			exercise
 		);
 
+		// updating local state
 		setWorkoutList([...workoutList, response.data]);
 	};
 
