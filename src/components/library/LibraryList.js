@@ -1,24 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import LibraryListItem from "./LibraryListItem";
 import Toggle from "../Toggle";
 
 function LibraryList({ newExerciseLibrary }) {
 	const { exerciseLibrary, addExercise, activeFilters } = useExerciseContext();
+	const [customDB, setCustomDB] = useState(false);
+	const [listToDisplay, setListToDisplay] = useState([...newExerciseLibrary]);
 
-	const [db, setdb] = useState(false);
-	let listToDisplay = [];
-	let muscleDBClass,
-		customDBClass = "";
-	if (!db) {
-		muscleDBClass = " bg-emerald-300";
-		customDBClass = " bg-indigo-300";
-		listToDisplay = [...newExerciseLibrary];
-	} else {
-		muscleDBClass = " bg-indigo-300";
-		customDBClass = " bg-emerald-300";
-		listToDisplay = [...exerciseLibrary];
-	}
+	const activeBtnStyle = " bg-emerald-300";
+	const inActiveBtnStyle = " bg-indigo-300";
+	const toggleDB = () => setCustomDB((current) => !current);
 
 	const renderedList = listToDisplay.map((exercise, i) => {
 		let visible = true;
@@ -46,34 +38,40 @@ function LibraryList({ newExerciseLibrary }) {
 		}
 	});
 
+	useEffect(() => {
+		if (customDB) {
+			setListToDisplay([...exerciseLibrary]);
+		} else {
+			setListToDisplay([...newExerciseLibrary]);
+		}
+	}, [listToDisplay]);
+
 	return (
 		<div className="border-x-2 border-indigo-500 px-4 max-h-96 overflow-auto min-w-[520px]">
 			<h3 className="relative	border-b-2 border-indigo-500 flex justify-center mb-4">
 				<Toggle label="sort" />
+				<div className="font-bold text-indigo-500">Library List</div>
 				<button
-					onClick={() => setdb(!db)}
-					className={
-						"transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500" +
-						muscleDBClass
-					}
-					disabled={!db}
+					onClick={toggleDB}
+					className={`transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500 ${
+						!customDB ? activeBtnStyle : inActiveBtnStyle
+					}`}
+					disabled={!customDB}
 				>
 					MuscleWikiDB
 				</button>
-				<div className="font-bold text-indigo-500">Library List</div>
 				<button
-					onClick={() => setdb(!db)}
-					className={
-						"transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500" +
-						customDBClass
-					}
-					disabled={db}
+					onClick={toggleDB}
+					className={`transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500 ${
+						customDB ? activeBtnStyle : inActiveBtnStyle
+					}`}
+					disabled={customDB}
 				>
 					CustomDB
 				</button>
 			</h3>
 
-			<ul>{renderedList}</ul>
+			{listToDisplay.length === 0 ? "Loading..." : <ul>{renderedList}</ul>}
 		</div>
 	);
 }
