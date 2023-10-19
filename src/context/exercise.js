@@ -6,7 +6,7 @@ const ExerciseContext = createContext();
 function Provider({ children }) {
 	const [exerciseLibrary, setExerciseLibrary] = useState([]);
 	const [workoutList, setWorkoutList] = useState([]);
-	const [activeFilters, setActiveFiltersList] = useState([]);
+	const [activeFilters, setActiveFilters] = useState([]);
 	const [isSortReverse, setIsSortReverse] = useState(false);
 
 	const sortLibrary = (library) => {
@@ -81,7 +81,7 @@ function Provider({ children }) {
 		activeFilters,
 		isSortReverse,
 		setIsSortReverse,
-		setActiveFiltersList,
+		setActiveFilters,
 		setExerciseLibrary,
 	};
 

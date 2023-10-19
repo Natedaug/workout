@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox";
 import useExerciseContext from "../hooks/use-exercise-context";
 
 function Filter() {
-	const { setActiveFiltersList } = useExerciseContext();
+	const { setActiveFilters } = useExerciseContext();
 	const filterOptions = [
 		"weights",
 		"cardio",
@@ -28,7 +28,7 @@ function Filter() {
 		//handle active filters state
 		const checkedBoxes = renderedCheckbox.filter((box) => box.props.checked);
 		const filters = checkedBoxes.map((box) => box.props.value);
-		setActiveFiltersList(filters);
+		setActiveFilters(filters);
 	}, [checkedState]);
 
 	const handleCheckbox = (position) => {
