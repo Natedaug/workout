@@ -12,32 +12,22 @@ function LibraryList({ newExerciseLibrary }) {
 	const inActiveBtnStyle = " bg-indigo-300";
 	const toggleDB = () => setCustomDB((current) => !current);
 
-	// Refactor: consider using .filter() instead of .map()
-	const renderedList = listToDisplay.map((exercise, i) => {
-		let visible = true;
-		if (activeFilters.length !== 0) {
-			visible = false;
-			exercise.tags.map((tag) => {
-				activeFilters.map((filter) => {
-					if (tag === filter) {
-						visible = true;
-						return;
-					}
-				});
-			});
-		}
-
-		if (visible) {
-			return (
-				<LibraryListItem
-					key={i}
-					index={i}
-					exercise={exercise}
-					addExercise={addExercise}
-				/>
-			);
-		}
-	});
+	const renderedList = listToDisplay
+		.filter((exercise) => {
+			if (activeFilters.length !== 0) {
+				// Check if any of the exercise's tags match any of the active filters
+				return exercise.tags.some((tag) => activeFilters.includes(tag));
+			}
+			return true; // If no active filters, show all exercises
+		})
+		.map((exercise, i) => (
+			<LibraryListItem
+				key={i}
+				index={i}
+				exercise={exercise}
+				addExercise={addExercise}
+			/>
+		));
 
 	useEffect(() => {
 		if (customDB) {
