@@ -8,9 +8,11 @@ function LibraryList({ newExerciseLibrary }) {
 	const [customDB, setCustomDB] = useState(false);
 	const [listToDisplay, setListToDisplay] = useState([...newExerciseLibrary]);
 
-	const activeBtnStyle = " bg-emerald-300";
-	const inActiveBtnStyle = " bg-indigo-300";
-	const toggleDB = () => setCustomDB((current) => !current);
+	const { activeBtnStyle, inActiveBtnStyle, toggleDB } = {
+		activeBtnStyle: "bg-emerald-300",
+		inActiveBtnStyle: "bg-indigo-300",
+		toggleDB: () => setCustomDB((current) => !current),
+	};
 
 	const renderedList = listToDisplay
 		.filter((exercise) => {
@@ -33,7 +35,7 @@ function LibraryList({ newExerciseLibrary }) {
 		if (customDB) {
 			setListToDisplay([...exerciseLibrary]);
 		} else {
-			setListToDisplay([...newExerciseLibrary]);
+						setListToDisplay([...newExerciseLibrary]);
 		}
 	}, [customDB]);
 
