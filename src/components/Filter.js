@@ -5,7 +5,6 @@ import useExerciseContext from "../hooks/use-exercise-context";
 function Filter() {
 	const { setActiveFiltersList } = useExerciseContext();
 	const filterOptions = [
-		"all",
 		"weights",
 		"cardio",
 		"Barbell",

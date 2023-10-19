@@ -16,7 +16,7 @@ function Provider({ children }) {
 	};
 
 	const fetchExerciseLibrary = async () => {
-		//Our custom lib data
+		//Our custom library data
 		const response = await axios.get("http://localhost:3001/exerciseLib");
 		setExerciseLibrary(sortLibrary(response.data));
 	};

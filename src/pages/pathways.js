@@ -1,4 +1,5 @@
 const libraryPath = "/";
 const userWorkoutPath = "/userWorkout";
+const heyPath = "/hey";
 
-export { libraryPath, userWorkoutPath };
+export { libraryPath, userWorkoutPath, heyPath };

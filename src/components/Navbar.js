@@ -16,8 +16,8 @@ function Navbar() {
 
 	return (
 		<header>
-			<nav className="bg-indigo-700 text-indigo-100 text-lg font-semibold py-2 pl-150">
-				<ul className="flex justify-center">{renderedRoutes}</ul>
+			<nav className=" bg-indigo-700 text-indigo-100 text-lg font-semibold py-2 pl-150">
+				<ul className="flex">{renderedRoutes}</ul>
 			</nav>
 		</header>
 	);
