@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import LibraryListItem from "./LibraryListItem";
 import Toggle from "../Toggle";
@@ -12,6 +12,7 @@ function LibraryList({ newExerciseLibrary }) {
 	const inActiveBtnStyle = " bg-indigo-300";
 	const toggleDB = () => setCustomDB((current) => !current);
 
+	// Refactor: consider using .filter() instead of .map()
 	const renderedList = listToDisplay.map((exercise, i) => {
 		let visible = true;
 		if (activeFilters.length !== 0) {
@@ -44,7 +45,12 @@ function LibraryList({ newExerciseLibrary }) {
 		} else {
 			setListToDisplay([...newExerciseLibrary]);
 		}
-	}, [listToDisplay]);
+	}, [customDB]);
+
+	//Refactor: look into useCallback or useMemo, might be away to avoid...
+	useEffect(() => {
+		setListToDisplay([...newExerciseLibrary]);
+	}, [newExerciseLibrary]);
 
 	return (
 		<div className="border-x-2 border-indigo-500 px-4 max-h-96 overflow-auto min-w-[520px]">
