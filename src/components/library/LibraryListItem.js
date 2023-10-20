@@ -41,11 +41,9 @@ function LibraryListItem({ index, exercise, addExercise }) {
 			</button>
 
 			{showModal && (
-				<>
-					<Modal setShowModal={setShowModal} modalActionBar={modalActionBar}>
-						<ExcerciseCard exercise={exercise} />
-					</Modal>
-				</>
+				<Modal setShowModal={setShowModal} modalActionBar={modalActionBar}>
+					<ExcerciseCard exercise={exercise} />
+				</Modal>
 			)}
 		</li>
 	);

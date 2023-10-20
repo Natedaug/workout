@@ -6,12 +6,10 @@ function ExcerciseCard(props) {
 	const renderedTarget = Object.keys(target).map((key) => {
 		return (
 			<li key={key} className="flex">
-				{key}:
-				<ul>
-					{target[key].map((targetItem, i) => (
-						<li key={i}>{targetItem}</li>
-					))}
-				</ul>
+				{key} -
+				{target[key].map((targetItem, i) => (
+					<i className="pl-2">{targetItem}</i>
+				))}
 			</li>
 		);
 	});
@@ -27,21 +25,32 @@ function ExcerciseCard(props) {
 				</video>
 			</a>
 			<div className="flex justify-around my-4">
-				<h4>{`Difficulty: ${difficulty}`}</h4>
+				<div>
+					<h4>
+						<strong className="mr-2 font-bold">Difficulty:</strong>
+						<i>{difficulty}</i>
+					</h4>
+				</div>
 				<div className="flex">
-					<h3>Target Area:</h3>
+					<h4>
+						<strong className="mr-2 font-bold">Target Area:</strong>
+					</h4>
 					<ul>{renderedTarget}</ul>
 				</div>
 			</div>
 			<div className="mb-4">
-				<h3>Instructions:</h3>
+				<h4>
+					<strong className="my-8 font-bold">Instructions:</strong>
+				</h4>
 				<ul>
 					{steps.map((step, i) => (
 						<li key={i}> - {step}</li>
 					))}
 				</ul>
 			</div>
-			<div>{`#${tags}`}</div>
+			<div>
+				<i className="text-indigo-700 font-bold text-md">{`#${tags}`}</i>
+			</div>
 		</div>
 	);
 }
