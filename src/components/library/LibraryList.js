@@ -33,6 +33,7 @@ function LibraryList({ newExerciseLibrary }) {
 
 	useEffect(() => {
 		//newExerciseLibrary: intial render is [] API data comes back and populates
+
 		if (customDB) {
 			setListToDisplay([...exerciseLibrary]);
 		} else {
