@@ -32,17 +32,13 @@ function LibraryList({ newExerciseLibrary }) {
 		));
 
 	useEffect(() => {
+		//newExerciseLibrary: intial render is [] API data comes back and populates
 		if (customDB) {
 			setListToDisplay([...exerciseLibrary]);
 		} else {
-						setListToDisplay([...newExerciseLibrary]);
+			setListToDisplay([...newExerciseLibrary]);
 		}
-	}, [customDB]);
-
-	//Refactor: look into useCallback or useMemo, might be away to avoid...
-	useEffect(() => {
-		setListToDisplay([...newExerciseLibrary]);
-	}, [newExerciseLibrary]);
+	}, [customDB, newExerciseLibrary]);
 
 	return (
 		<div className="border-x-2 border-indigo-500 px-4 max-h-96 overflow-auto min-w-[520px]">
