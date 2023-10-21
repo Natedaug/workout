@@ -1,29 +1,10 @@
 import { useState } from "react";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
 import ExcerciseCard from "../ExerciseCard";
+import ModalActionBar from "../Modal/ModalActionBar";
 
 function LibraryListItem({ index, exercise, addExercise }) {
 	const [showModal, setShowModal] = useState(false);
-
-	const modalActionBar = (
-		<>
-			<button
-				className="rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4 mb-4"
-				onClick={() => {
-					addExercise(exercise);
-					setShowModal(false);
-				}}
-			>
-				Add Excercise
-			</button>
-			<button
-				className="rounded-full ml-4 border-2 border-red-500 bg-red-300 px-4 mb-4"
-				onClick={() => setShowModal(false)}
-			>
-				Close
-			</button>
-		</>
-	);
 
 	return (
 		<li key={index} className="my-2 flex justify-between">
@@ -41,8 +22,13 @@ function LibraryListItem({ index, exercise, addExercise }) {
 			</button>
 
 			{showModal && (
-				<Modal setShowModal={setShowModal} modalActionBar={modalActionBar}>
+				<Modal setShowModal={setShowModal}>
 					<ExcerciseCard exercise={exercise} />
+					<ModalActionBar
+						exercise={exercise}
+						addExercise={addExercise}
+						setShowModal={setShowModal}
+					/>
 				</Modal>
 			)}
 		</li>
