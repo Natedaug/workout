@@ -25,11 +25,23 @@ function LibraryListItem({ index, exercise, addExercise }) {
 			{showModal && (
 				<Modal setShowModal={setShowModal}>
 					<ExcerciseCard exercise={exercise} />
-					<ModalActionBar
-						exercise={exercise}
-						addExercise={addExercise}
-						setShowModal={setShowModal}
-					/>
+					<ModalActionBar>
+						<Button
+							className="border-indigo-500 bg-indigo-300"
+							onClick={() => {
+								addExercise(exercise);
+								setShowModal(false);
+							}}
+						>
+							Add Excercise
+						</Button>
+						<Button
+							className="border-red-500 bg-red-300"
+							onClick={() => setShowModal(false)}
+						>
+							Close
+						</Button>
+					</ModalActionBar>
 				</Modal>
 			)}
 		</li>

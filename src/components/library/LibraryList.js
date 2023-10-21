@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import LibraryListItem from "./LibraryListItem";
 import Toggle from "../Toggle";
+import Button from "../UI/Button";
 
 function LibraryList({ newExerciseLibrary }) {
 	const { exerciseLibrary, addExercise, activeFilters } = useExerciseContext();
