@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Modal from "../UI/Modal/Modal";
+import Modal from "../Modal";
 import ExcerciseCard from "../ExerciseCard";
-import ModalActionBar from "../UI/Modal/ModalActionBar";
-import Button from "../UI/Button";
+import ModalActionBar from "../ModalActionBar";
+import Button from "../Button";
 
 function LibraryListItem({ index, exercise, addExercise }) {
 	const [showModal, setShowModal] = useState(false);

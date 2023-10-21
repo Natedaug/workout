@@ -1,7 +1,7 @@
 import { GoCheck } from "react-icons/go";
 import { useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
-import Button from "../UI/Button";
+import Button from "../Button";
 
 function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
 	const { completedExercise } = useExerciseContext();

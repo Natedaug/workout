@@ -3,7 +3,7 @@ import useExerciseContext from "../../hooks/use-exercise-context";
 import { useLocation } from "react-router-dom";
 import UserWorkoutListItem from "./UserWorkoutListItem";
 import { userWorkoutPath } from "../../pages/pathways";
-import Button from "../UI/Button";
+import Button from "../Button";
 
 function UserWorkoutList() {
 	const location = useLocation();
