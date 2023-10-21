@@ -46,7 +46,7 @@ function LibraryList({ newExerciseLibrary }) {
 			<h3 className="relative	border-b-2 border-indigo-500 flex justify-center mb-4">
 				<Toggle label="sort" />
 				<div className="font-bold text-indigo-500">Library List</div>
-				<button
+				<Button
 					onClick={toggleDB}
 					className={`transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500 ${
 						!customDB ? activeBtnStyle : inActiveBtnStyle
@@ -54,8 +54,8 @@ function LibraryList({ newExerciseLibrary }) {
 					disabled={!customDB}
 				>
 					MuscleWikiDB
-				</button>
-				<button
+				</Button>
+				<Button
 					onClick={toggleDB}
 					className={`transition-colors p-1 mb-4 text-xs mx-4 rounded-full ml-4 border-2 border-indigo-500 ${
 						customDB ? activeBtnStyle : inActiveBtnStyle
@@ -63,7 +63,7 @@ function LibraryList({ newExerciseLibrary }) {
 					disabled={customDB}
 				>
 					CustomDB
-				</button>
+				</Button>
 			</h3>
 
 			{listToDisplay.length === 0 ? "Loading..." : <ul>{renderedList}</ul>}

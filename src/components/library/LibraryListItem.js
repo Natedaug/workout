@@ -1,25 +1,26 @@
 import { useState } from "react";
-import Modal from "../Modal/Modal";
+import Modal from "../UI/Modal/Modal";
 import ExcerciseCard from "../ExerciseCard";
-import ModalActionBar from "../Modal/ModalActionBar";
+import ModalActionBar from "../UI/Modal/ModalActionBar";
+import Button from "../UI/Button";
 
 function LibraryListItem({ index, exercise, addExercise }) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<li key={index} className="my-2 flex justify-between">
-			<button
+			<span
 				className="text-emerald-600	font-bold w-full text-left hover:bg-indigo-200"
 				onClick={() => setShowModal(true)}
 			>
 				{exercise.label}
-			</button>
-			<button
-				className="rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
+			</span>
+			<Button
+				className="border-indigo-500 bg-indigo-300"
 				onClick={() => addExercise(exercise)}
 			>
 				+
-			</button>
+			</Button>
 
 			{showModal && (
 				<Modal setShowModal={setShowModal}>

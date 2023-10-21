@@ -1,6 +1,7 @@
 import { GoCheck } from "react-icons/go";
 import { useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
+import Button from "../UI/Button";
 
 function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
 	const { completedExercise } = useExerciseContext();
@@ -18,29 +19,30 @@ function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
 
 	return (
 		<li className="my-2 flex justify-between">
-			{exercise.label}
+			<div>{exercise.label}</div>
+			<div>
+				{onMyWorkoutPage && (
+					<Button
+						className={
+							exerciseCompleted
+								? "border-green-500 bg-green-300"
+								: "border-indigo-500 bg-indigo-300"
+						}
+						onClick={() => handleCompleted(exercise)}
+					>
+						<GoCheck />
+					</Button>
+				)}
 
-			{onMyWorkoutPage && (
-				<button
-					className={
-						exerciseCompleted
-							? "rounded-full ml-4 border-2 border-green-500 bg-green-300 px-4"
-							: "rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
-					}
-					onClick={() => handleCompleted(exercise)}
-				>
-					<GoCheck />
-				</button>
-			)}
-
-			{!exerciseCompleted && (
-				<button
-					className="rounded-full ml-4 border-2 border-indigo-500 bg-indigo-300 px-4"
-					onClick={() => handleDelete(exercise)}
-				>
-					-
-				</button>
-			)}
+				{!exerciseCompleted && (
+					<Button
+						className="border-indigo-500 bg-indigo-300"
+						onClick={() => handleDelete(exercise)}
+					>
+						-
+					</Button>
+				)}
+			</div>
 		</li>
 	);
 }
