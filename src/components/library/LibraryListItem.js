@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Modal from "../Modal";
 import ExcerciseCard from "../ExerciseCard";
-import ModalActionBar from "../ModalActionBar";
 import Button from "../Button";
 import { GoPlus } from "react-icons/go";
 
@@ -24,13 +23,12 @@ function LibraryListItem({ index, exercise, addExercise }) {
 			</Button>
 
 			{showModal && (
-				<Modal setShowModal={setShowModal}>
+				<Modal
+					setShowModal={setShowModal}
+					exercise={exercise}
+					addExercise={addExercise}
+				>
 					<ExcerciseCard exercise={exercise} />
-					<ModalActionBar
-						exercise={exercise}
-						addExercise={addExercise}
-						setShowModal={setShowModal}
-					/>
 				</Modal>
 			)}
 		</li>
