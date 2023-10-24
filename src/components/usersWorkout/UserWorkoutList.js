@@ -3,6 +3,7 @@ import useExerciseContext from "../../hooks/use-exercise-context";
 import { useLocation } from "react-router-dom";
 import UserWorkoutListItem from "./UserWorkoutListItem";
 import { userWorkoutPath } from "../../pages/pathways";
+import Button from "../Button";
 
 function UserWorkoutList() {
 	const location = useLocation();
@@ -38,12 +39,12 @@ function UserWorkoutList() {
 
 	const renderWorkoutCompleteBtn = (
 		<div className="flex justify-center">
-			<button
-				className="rounded-full ml-4 border-2 border-green-500 bg-green-400 px-4"
+			<Button
+				className=" border-green-500 bg-green-400 px-4"
 				onClick={workoutComplete}
 			>
 				Workout Completed
-			</button>
+			</Button>
 		</div>
 	);
 
