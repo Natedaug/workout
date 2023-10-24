@@ -12,7 +12,7 @@ function Modal({ setShowModal, exercise, addExercise, children }) {
 	}, []);
 
 	const modalContent = (
-		<div>
+		<>
 			{/* modal background */}
 			<div
 				onClick={() => setShowModal(false)}
@@ -43,7 +43,7 @@ function Modal({ setShowModal, exercise, addExercise, children }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 
 	return ReactDOM.createPortal(
