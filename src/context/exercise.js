@@ -52,6 +52,8 @@ function Provider({ children }) {
 	};
 
 	const completedExercise = async (exercise) => {
+		// !!! Refactor; needs integrations w/DB as of now only updates workoutList
+
 		const response = await axios.put(
 			`http://localhost:3001/workoutList/${exercise.id}`,
 			{

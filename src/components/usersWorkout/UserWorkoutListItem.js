@@ -1,27 +1,33 @@
-import { GoCheck, GoTrash } from "react-icons/go";
+import { GoCheck, GoTrash, GoKebabHorizontal } from "react-icons/go";
 import { useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import Button from "../Button";
 
-function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
+function UserWorkoutListItem({ exercise, onMyWorkoutPage, handleDelete }) {
 	const { completedExercise } = useExerciseContext();
 	const [exerciseCompleted, setExerciseCompleted] = useState(
 		exercise.completed
 	);
 
-	const handleCompleted = (exercise) => {
-		// allow 1 Btn click
-		if (exerciseCompleted) return;
+	const { handleCompleted, completedIcon, pendingIcon } = {
+		completedIcon: <GoCheck />,
+		pendingIcon: <GoKebabHorizontal />,
+		handleCompleted: (exercise) => {
+			// !!! Refactor, This will need a more through implmentation after DB is set up
 
-		completedExercise(exercise);
-		setExerciseCompleted(true);
+			//update DB
+			completedExercise(exercise);
+
+			//update App State
+			setExerciseCompleted((current) => !current);
+		},
 	};
 
 	return (
 		<li className="my-2 flex justify-between">
 			<div>{exercise.label}</div>
 			<div>
-				{onMyWorkoutPage && (
+				{onMyWorkoutPage ? (
 					<Button
 						className={
 							exerciseCompleted
@@ -30,16 +36,14 @@ function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
 						}
 						onClick={() => handleCompleted(exercise)}
 					>
-						<GoCheck />
+						{exerciseCompleted ? completedIcon : pendingIcon}
 					</Button>
-				)}
-
-				{!exerciseCompleted && (
+				) : (
 					<Button
 						className="border-indigo-500 bg-indigo-300"
 						onClick={() => handleDelete(exercise)}
 					>
-						-
+						<GoTrash />
 					</Button>
 				)}
 			</div>
@@ -47,4 +51,4 @@ function ButtonShow({ exercise, onMyWorkoutPage, handleDelete }) {
 	);
 }
 
-export default ButtonShow;
+export default UserWorkoutListItem;
