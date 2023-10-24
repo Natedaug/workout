@@ -5,7 +5,7 @@ import UserWorkoutList from "../components/usersWorkout/UserWorkoutList";
 import Filter from "../components/Filter";
 import useExerciseContext from "../hooks/use-exercise-context";
 
-function HomePage() {
+function LibraryPage() {
 	const {
 		fetchExerciseLibrary,
 		fetchworkoutList,
@@ -56,4 +56,4 @@ function HomePage() {
 	);
 }
 
-export default HomePage;
+export default LibraryPage;
