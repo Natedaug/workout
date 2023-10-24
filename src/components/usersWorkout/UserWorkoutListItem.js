@@ -1,4 +1,4 @@
-import { GoCheck } from "react-icons/go";
+import { GoCheck, GoTrash } from "react-icons/go";
 import { useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import Button from "../Button";

@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import ExcerciseCard from "../ExerciseCard";
 import ModalActionBar from "../ModalActionBar";
 import Button from "../Button";
+import { GoPlus } from "react-icons/go";
 
 function LibraryListItem({ index, exercise, addExercise }) {
 	const [showModal, setShowModal] = useState(false);
@@ -19,7 +20,7 @@ function LibraryListItem({ index, exercise, addExercise }) {
 				className="border-indigo-500 bg-indigo-300"
 				onClick={() => addExercise(exercise)}
 			>
-				+
+				<GoPlus />
 			</Button>
 
 			{showModal && (
