@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { libraryPath, userWorkoutPath } from "../pages/pathways";
 function Navbar() {
 	const routes = [
-		{ label: "Home", path: libraryPath },
+		{ label: "Excercises", path: libraryPath },
 		{ label: "My Workout", path: userWorkoutPath },
 	];
 
