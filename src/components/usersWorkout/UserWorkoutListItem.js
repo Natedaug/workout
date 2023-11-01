@@ -3,7 +3,12 @@ import { useState } from "react";
 import useExerciseContext from "../../hooks/use-exercise-context";
 import Button from "../Button";
 
-function UserWorkoutListItem({ exercise, onMyWorkoutPage, handleDelete }) {
+function UserWorkoutListItem({
+	exercise,
+	onMyWorkoutPage,
+	handleDelete,
+	setSelectedWorkListItem,
+}) {
 	const { completedExercise } = useExerciseContext();
 	const [exerciseCompleted, setExerciseCompleted] = useState(
 		exercise.completed
@@ -25,7 +30,16 @@ function UserWorkoutListItem({ exercise, onMyWorkoutPage, handleDelete }) {
 
 	return (
 		<li className="my-2 flex justify-between">
-			<div>{exercise.label}</div>
+			{onMyWorkoutPage ? (
+				<span
+					className="text-emerald-600	font-bold w-full text-left hover:bg-indigo-200"
+					onClick={() => setSelectedWorkListItem(exercise.id)}
+				>
+					{exercise.label}
+				</span>
+			) : (
+				<span>{exercise.label}</span>
+			)}
 			<div>
 				{onMyWorkoutPage ? (
 					<Button

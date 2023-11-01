@@ -75,6 +75,7 @@ function Provider({ children }) {
 	const valueToShare = {
 		exerciseLibrary,
 		workoutList,
+		setWorkoutList,
 		fetchExerciseLibrary,
 		fetchworkoutList,
 		addExercise,

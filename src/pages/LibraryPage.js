@@ -42,6 +42,7 @@ function LibraryPage() {
 	}, []);
 
 	useEffect(() => {
+		// keep persitance state in UI
 		fetchworkoutList();
 	}, [fetchworkoutList]);
 

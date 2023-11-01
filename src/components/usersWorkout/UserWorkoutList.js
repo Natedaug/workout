@@ -5,7 +5,7 @@ import UserWorkoutListItem from "./UserWorkoutListItem";
 import { userWorkoutPath } from "../../pages/pathways";
 import Button from "../Button";
 
-function UserWorkoutList() {
+function UserWorkoutList({ setSelectedWorkListItem }) {
 	const location = useLocation();
 	const { workoutList, deleteExercise } = useExerciseContext();
 	const [onMyWorkoutPage, setOnMyWorkoutPage] = useState(false);
@@ -24,6 +24,7 @@ function UserWorkoutList() {
 			exercise={exercise}
 			onMyWorkoutPage={onMyWorkoutPage}
 			handleDelete={handleDelete}
+			setSelectedWorkListItem={setSelectedWorkListItem}
 		/>
 	));
 
