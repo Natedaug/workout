@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import LibraryList from "../components/library/LibraryList";
 import UserWorkoutList from "../components/usersWorkout/UserWorkoutList";
 import Filter from "../components/Filter";

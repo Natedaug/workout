@@ -1,5 +1,5 @@
 import { createContext, useState, useCallback } from "react";
-import axios from "axios";
+import supabase from "../config/supaBaseClient";
 
 const ExerciseContext = createContext();
 
@@ -15,61 +15,64 @@ function Provider({ children }) {
 		);
 	};
 
-	const fetchExerciseLibrary = async () => {
+	const fetchExerciseLibrary = useCallback(async () => {
 		//Our custom library data
-		const response = await axios.get("http://localhost:3001/exerciseLib");
-		setExerciseLibrary(sortLibrary(response.data));
-	};
+		const { data, error } = await supabase.from("customdb").select();
+
+		if (!error) {
+			setExerciseLibrary(data);
+		}
+	}, []);
 
 	const fetchworkoutList = useCallback(async () => {
-		// the users workoutList
-		const response = await axios.get("http://localhost:3001/workoutList");
-		setWorkoutList(response.data);
+		const { data, error } = await supabase.from("userWorkoutList").select();
+		console.log(411, data);
+		console.log(911, error);
+		setWorkoutList(data);
 	}, []);
 
 	const addExercise = async (exercise) => {
-		delete exercise["id"]; //remove id from muscleWikiDB, as user worklist database adds a new id
-
 		// updating db.json
-		const response = await axios.post(
-			`http://localhost:3001/workoutList`,
-			exercise
-		);
 
-		// updating local state
-		setWorkoutList([...workoutList, response.data]);
+		const { error } = await supabase.from("userWorkoutList").insert(exercise);
+
+		if (!error) {
+			// updating local state
+			setWorkoutList([...workoutList, exercise]);
+		}
 	};
 
 	const deleteExercise = async (exerciseToDelete) => {
-		await axios.delete(
-			`http://localhost:3001/workoutList/${exerciseToDelete.id}`
-		);
+		const { error } = await supabase
+			.from("userWorkoutList")
+			.delete()
+			.eq("id", exerciseToDelete.id);
+
 		//check for for successful
-		const updatedWorkoutList = workoutList.filter((exercise) => {
-			return exercise.id !== exerciseToDelete.id;
-		});
-		setWorkoutList(updatedWorkoutList);
+		if (!error) {
+			const updatedWorkoutList = workoutList.filter((exercise) => {
+				return exercise.id !== exerciseToDelete.id;
+			});
+			setWorkoutList(updatedWorkoutList);
+		}
 	};
 
 	const completedExercise = async (exercise) => {
 		// !!! Refactor; needs integrations w/DB as of now only updates workoutList
-
-		const response = await axios.put(
-			`http://localhost:3001/workoutList/${exercise.id}`,
-			{
-				...exercise,
-				completed: true,
-			}
-		);
-
-		const updatedWorkoutList = workoutList.map((workoutItem) => {
-			if (workoutItem === exercise.id) {
-				return response.data;
-			}
-			return workoutItem;
-		});
-
-		setWorkoutList(updatedWorkoutList);
+		// const response = await axios.put(
+		// 	`http://localhost:3001/workoutList/${exercise.id}`,
+		// 	{
+		// 		...exercise,
+		// 		completed: true,
+		// 	}
+		// );
+		// const updatedWorkoutList = workoutList.map((workoutItem) => {
+		// 	if (workoutItem === exercise.id) {
+		// 		return response.data;
+		// 	}
+		// 	return workoutItem;
+		// });
+		// setWorkoutList(updatedWorkoutList);
 	};
 
 	const valueToShare = {
