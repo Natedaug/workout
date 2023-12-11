@@ -1,5 +1,6 @@
 import { createContext, useState, useCallback } from "react";
 import supabase from "../config/supaBaseClient";
+import { logError } from "../utils/helpers";
 
 const ExerciseContext = createContext();
 
@@ -15,29 +16,32 @@ function Provider({ children }) {
 		);
 	};
 
-	const fetchExerciseLibrary = useCallback(async () => {
-		//Our custom library data
+	const fetchCustomDB = useCallback(async () => {
 		const { data, error } = await supabase.from("customdb").select();
 
-		if (!error) {
+		if (error) {
+			logError(error);
+		} else {
 			setExerciseLibrary(data);
 		}
 	}, []);
 
-	const fetchworkoutList = useCallback(async () => {
+	const fetchUserWorkoutList = useCallback(async () => {
 		const { data, error } = await supabase.from("userWorkoutList").select();
-		console.log(411, data);
-		console.log(911, error);
-		setWorkoutList(data);
+
+		if (error) {
+			logError(error);
+		} else {
+			setWorkoutList(data);
+		}
 	}, []);
 
 	const addExercise = async (exercise) => {
-		// updating db.json
-
 		const { error } = await supabase.from("userWorkoutList").insert(exercise);
 
-		if (!error) {
-			// updating local state
+		if (error) {
+			logError(error);
+		} else {
 			setWorkoutList([...workoutList, exercise]);
 		}
 	};
@@ -48,8 +52,9 @@ function Provider({ children }) {
 			.delete()
 			.eq("id", exerciseToDelete.id);
 
-		//check for for successful
-		if (!error) {
+		if (error) {
+			logError(error);
+		} else {
 			const updatedWorkoutList = workoutList.filter((exercise) => {
 				return exercise.id !== exerciseToDelete.id;
 			});
@@ -57,33 +62,14 @@ function Provider({ children }) {
 		}
 	};
 
-	const completedExercise = async (exercise) => {
-		// !!! Refactor; needs integrations w/DB as of now only updates workoutList
-		// const response = await axios.put(
-		// 	`http://localhost:3001/workoutList/${exercise.id}`,
-		// 	{
-		// 		...exercise,
-		// 		completed: true,
-		// 	}
-		// );
-		// const updatedWorkoutList = workoutList.map((workoutItem) => {
-		// 	if (workoutItem === exercise.id) {
-		// 		return response.data;
-		// 	}
-		// 	return workoutItem;
-		// });
-		// setWorkoutList(updatedWorkoutList);
-	};
-
 	const valueToShare = {
 		exerciseLibrary,
 		workoutList,
 		setWorkoutList,
-		fetchExerciseLibrary,
-		fetchworkoutList,
+		fetchCustomDB,
+		fetchUserWorkoutList,
 		addExercise,
 		deleteExercise,
-		completedExercise,
 		activeFilters,
 		isSortReverse,
 		setIsSortReverse,
