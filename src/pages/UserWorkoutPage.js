@@ -5,9 +5,11 @@ import useExerciseContext from "../hooks/use-exercise-context";
 
 function UserWorkoutPage(props) {
 	const { workoutList, fetchUserWorkoutList } = useExerciseContext();
+	const { workoutList, fetchUserWorkoutList } = useExerciseContext();
 	const [selectedWorkListItem, setSelectedWorkListItem] = useState(0);
 
 	useEffect(() => {
+		fetchUserWorkoutList();
 		fetchUserWorkoutList();
 	}, []);
 
