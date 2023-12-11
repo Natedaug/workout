@@ -1,6 +1,5 @@
 import { GoCheck, GoTrash, GoKebabHorizontal } from "react-icons/go";
 import { useState } from "react";
-import useExerciseContext from "../../hooks/use-exercise-context";
 import Button from "../Button";
 
 function UserWorkoutListItem({
@@ -9,7 +8,6 @@ function UserWorkoutListItem({
 	handleDelete,
 	setSelectedWorkListItem,
 }) {
-	const { completedExercise } = useExerciseContext();
 	const [exerciseCompleted, setExerciseCompleted] = useState(
 		exercise.completed
 	);
@@ -18,11 +16,6 @@ function UserWorkoutListItem({
 		completedIcon: <GoCheck />,
 		pendingIcon: <GoKebabHorizontal />,
 		handleCompleted: (exercise) => {
-			// !!! Refactor, This will need a more through implmentation after DB is set up
-
-			//update DB
-			completedExercise(exercise);
-
 			//update App State
 			setExerciseCompleted((current) => !current);
 		},
