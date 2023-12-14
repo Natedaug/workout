@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "../Modal";
-import ExcerciseCard from "../ExerciseCard";
+import ExerciseCard from "../ExerciseCard";
 import Button from "../Button";
 import { GoPlus } from "react-icons/go";
 
@@ -28,7 +28,7 @@ function LibraryListItem({ index, exercise, addExercise }) {
 					exercise={exercise}
 					addExercise={addExercise}
 				>
-					<ExcerciseCard exercise={exercise} />
+					<ExerciseCard exercise={exercise} />
 				</Modal>
 			)}
 		</li>

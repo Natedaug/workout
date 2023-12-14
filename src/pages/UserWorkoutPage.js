@@ -4,28 +4,28 @@ import UserWorkoutList from "../components/usersWorkout/UserWorkoutList";
 import useExerciseContext from "../hooks/use-exercise-context";
 
 function UserWorkoutPage(props) {
-	const { workoutList, fetchworkoutList } = useExerciseContext();
-	const [selectedWorkListItem, setSelectedWorkListItem] = useState(0);
+	const { workoutList, fetchUserWorkoutList } = useExerciseContext();
+	const [selectedWorkListItem, setSelectedWorkListItem] = useState(null);
 
 	useEffect(() => {
-		fetchworkoutList();
-	}, []);
+		const fetchData = async () => {
+			await fetchUserWorkoutList();
+			// Set selectedWorkListItem after fetching data
+			setSelectedWorkListItem(workoutList[0]);
+		};
 
-	const userSelectedExcercise = workoutList[selectedWorkListItem];
+		fetchData();
+	}, []);
 
 	return (
 		<>
 			<div className="flex space-x-8 ml-4">
 				<UserWorkoutList setSelectedWorkListItem={setSelectedWorkListItem} />
 
-				{workoutList.length === 0 ? (
-					"Loading ..."
+				{selectedWorkListItem ? (
+					<ExerciseCard exercise={selectedWorkListItem} />
 				) : (
-					<>
-						{selectedWorkListItem}
-
-						{<ExerciseCard exercise={userSelectedExcercise} />}
-					</>
+					"Loading..."
 				)}
 			</div>
 		</>
