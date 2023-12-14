@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function ExerciseCard(props) {
 	const { label, difficulty, video, steps, tags, target } = props.exercise;
 
@@ -22,9 +24,14 @@ function ExerciseCard(props) {
 				{label}
 			</h3>
 			<a href={video} target="_blank" rel="noreferrer">
-				<video controls="" autoPlay={true} name="media">
-					<source src={video} type="video/mp4" />
-									</video>
+				<video
+					src={video}
+					controls=""
+					autoPlay={true}
+					name="media"
+					aria-label="Video player"
+					aria-describedby="excercise demo"
+				/>
 			</a>
 			<div className="flex justify-around my-4">
 				<div>
