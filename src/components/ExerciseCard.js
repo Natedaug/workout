@@ -8,7 +8,9 @@ function ExcerciseCard(props) {
 			<li key={key} className="flex">
 				{key} -
 				{target[key].map((targetItem, i) => (
-					<i className="pl-2">{targetItem}</i>
+					<i key={i} className="pl-2">
+						{targetItem}
+					</i>
 				))}
 			</li>
 		);
