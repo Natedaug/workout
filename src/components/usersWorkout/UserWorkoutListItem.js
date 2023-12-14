@@ -26,7 +26,7 @@ function UserWorkoutListItem({
 			{onMyWorkoutPage ? (
 				<span
 					className="text-emerald-600	font-bold w-full text-left hover:bg-indigo-200"
-					onClick={() => setSelectedWorkListItem(exercise.id)}
+					onClick={() => setSelectedWorkListItem(exercise)}
 				>
 					{exercise.label}
 				</span>
