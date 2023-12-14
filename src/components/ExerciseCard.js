@@ -1,4 +1,4 @@
-function ExcerciseCard(props) {
+function ExerciseCard(props) {
 	const { label, difficulty, video, steps, tags, target } = props.exercise;
 
 	//example-> target{"Primaray":["biceps", "forearms"],"Secondary":["glutes","thumb"]}
@@ -24,7 +24,7 @@ function ExcerciseCard(props) {
 			<a href={video} target="_blank" rel="noreferrer">
 				<video controls="" autoPlay={true} name="media">
 					<source src={video} type="video/mp4" />
-				</video>
+									</video>
 			</a>
 			<div className="flex justify-around my-4">
 				<div>
@@ -57,4 +57,4 @@ function ExcerciseCard(props) {
 	);
 }
 
-export default ExcerciseCard;
+export default ExerciseCard;
