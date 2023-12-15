@@ -26,8 +26,8 @@ function Provider({ children }) {
 		}
 	}, []);
 
-	const fetchUserWorkoutList = useCallback(async () => {
-		const { data, error } = await supabase.from("userWorkoutList").select();
+	const fetchMyWorkoutList = useCallback(async () => {
+		const { data, error } = await supabase.from("myWorkoutList").select();
 
 		if (error) {
 			logError(error);
@@ -37,7 +37,7 @@ function Provider({ children }) {
 	}, []);
 
 	const addExercise = async (exercise) => {
-		const { error } = await supabase.from("userWorkoutList").insert(exercise);
+		const { error } = await supabase.from("myWorkoutList").insert(exercise);
 
 		if (error) {
 			logError(error);
@@ -48,7 +48,7 @@ function Provider({ children }) {
 
 	const deleteExercise = async (exerciseToDelete) => {
 		const { error } = await supabase
-			.from("userWorkoutList")
+			.from("myWorkoutList")
 			.delete()
 			.eq("id", exerciseToDelete.id);
 
@@ -67,7 +67,7 @@ function Provider({ children }) {
 		workoutList,
 		setWorkoutList,
 		fetchCustomDB,
-		fetchUserWorkoutList,
+		fetchMyWorkoutList,
 		addExercise,
 		deleteExercise,
 		activeFilters,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LibraryList from "../components/library/LibraryList";
-import UserWorkoutList from "../components/usersWorkout/UserWorkoutList";
+import MyWorkoutList from "../components/myWorkout/MyWorkoutList";
 import Filter from "../components/Filter";
 import useExerciseContext from "../hooks/use-exercise-context";
 import supabase from "../config/supaBaseClient";
@@ -9,7 +9,7 @@ import { logError } from "../utils/helpers";
 function LibraryPage() {
 	const {
 		fetchCustomDB,
-		fetchUserWorkoutList,
+		fetchMyWorkoutList,
 		isSortReverse,
 		exerciseLibrary,
 		setExerciseLibrary,
@@ -48,15 +48,15 @@ function LibraryPage() {
 
 	useEffect(() => {
 		// keep persitance state in UI
-		fetchUserWorkoutList();
-	}, [fetchUserWorkoutList]);
+		fetchMyWorkoutList();
+	}, [fetchMyWorkoutList]);
 
 	return (
 		<>
 			<Filter />
 			<div className="flex space-x-8 justify-center">
 				<LibraryList newExerciseLibrary={newExerciseLibrary} />
-				<UserWorkoutList />
+				<MyWorkoutList />
 			</div>
 		</>
 	);
