@@ -2,8 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import LibraryPage from "./pages/LibraryPage";
-import UserWorkoutPage from "./pages/UserWorkoutPage";
-
+import MyWorkoutPage from "./pages/MyWorkoutPage";
 
 import { libraryPath, userWorkoutPath } from "./pages/pathways";
 
@@ -14,8 +13,7 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage />,
 		children: [
 			{ path: libraryPath, element: <LibraryPage /> },
-			{ path: userWorkoutPath, element: <UserWorkoutPage /> },
-	
+			{ path: userWorkoutPath, element: <MyWorkoutPage /> },
 		],
 	},
 ]);

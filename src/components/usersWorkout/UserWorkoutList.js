@@ -6,8 +6,8 @@ import { userWorkoutPath } from "../../pages/pathways";
 import Button from "../Button";
 
 function UserWorkoutList({ setSelectedWorkListItem }) {
-	//props set on UserWorkoutPage, none set for Library Page
-	
+	//props set on MyWorkoutPage, none set for Library Page
+
 	const location = useLocation();
 	const { workoutList, deleteExercise } = useExerciseContext();
 	const [onMyWorkoutPage, setOnMyWorkoutPage] = useState(false);

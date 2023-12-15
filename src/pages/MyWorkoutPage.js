@@ -3,7 +3,7 @@ import ExerciseCard from "../components/ExerciseCard";
 import UserWorkoutList from "../components/usersWorkout/UserWorkoutList";
 import useExerciseContext from "../hooks/use-exercise-context";
 
-function UserWorkoutPage(props) {
+function MyWorkoutPage(props) {
 	const { workoutList, fetchUserWorkoutList } = useExerciseContext();
 	const [selectedWorkListItem, setSelectedWorkListItem] = useState(null);
 
@@ -32,4 +32,4 @@ function UserWorkoutPage(props) {
 	);
 }
 
-export default UserWorkoutPage;
+export default MyWorkoutPage;
