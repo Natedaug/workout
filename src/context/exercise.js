@@ -64,17 +64,17 @@ function Provider({ children }) {
 
 	const valueToShare = {
 		exerciseLibrary,
+		setExerciseLibrary,
 		workoutList,
 		setWorkoutList,
+		activeFilters,
+		setActiveFilters,
+		isSortReverse,
+		setIsSortReverse,
 		fetchCustomDB,
 		fetchMyWorkoutList,
 		addExercise,
 		deleteExercise,
-		activeFilters,
-		isSortReverse,
-		setIsSortReverse,
-		setActiveFilters,
-		setExerciseLibrary,
 	};
 
 	return (
