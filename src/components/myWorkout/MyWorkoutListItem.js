@@ -2,7 +2,7 @@ import { GoCheck, GoTrash, GoKebabHorizontal } from "react-icons/go";
 import { useState } from "react";
 import Button from "../Button";
 
-function UserWorkoutListItem({
+function MyWorkoutListItem({
 	exercise,
 	onMyWorkoutPage,
 	handleDelete,
@@ -58,4 +58,4 @@ function UserWorkoutListItem({
 	);
 }
 
-export default UserWorkoutListItem;
+export default MyWorkoutListItem;
