@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useExerciseContext from "../../hooks/use-exercise-context";
-import UserWorkoutListItem from "./UserWorkoutListItem";
-import { userWorkoutPath } from "../../pages/pathways";
+import MyWorkoutListItem from "./MyWorkoutListItem";
+import { myWorkoutPath } from "../../pages/pathways";
 import Button from "../Button";
 
-function UserWorkoutList({ setSelectedWorkListItem }) {
-	//props set on UserWorkoutPage, none set for Library Page
-	
+function MyWorkoutList({ setSelectedWorkListItem }) {
+	//props set on MyWorkoutPage, none set for Library Page
+
 	const location = useLocation();
 	const { workoutList, deleteExercise } = useExerciseContext();
 	const [onMyWorkoutPage, setOnMyWorkoutPage] = useState(false);
@@ -21,7 +21,7 @@ function UserWorkoutList({ setSelectedWorkListItem }) {
 	};
 
 	const renderedList = workoutList.map((exercise, i) => (
-		<UserWorkoutListItem
+		<MyWorkoutListItem
 			key={i}
 			exercise={exercise}
 			onMyWorkoutPage={onMyWorkoutPage}
@@ -43,7 +43,7 @@ function UserWorkoutList({ setSelectedWorkListItem }) {
 
 	useEffect(() => {
 		// Check if the user is on the "My Workout" page
-		if (location.pathname === userWorkoutPath) {
+		if (location.pathname === myWorkoutPath) {
 			setOnMyWorkoutPage(true);
 		}
 	}, []);
@@ -60,4 +60,4 @@ function UserWorkoutList({ setSelectedWorkListItem }) {
 	);
 }
 
-export default UserWorkoutList;
+export default MyWorkoutList;
