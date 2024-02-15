@@ -5,8 +5,6 @@ import useExerciseContext from "../hooks/use-exercise-context";
 function Filter() {
 	const { setActiveFilters } = useExerciseContext();
 	const filterOptions = [
-		"weights",
-		"cardio",
 		"Barbell",
 		"Dumbbells",
 		"Kettlebells",
@@ -18,7 +16,7 @@ function Filter() {
 		"Yoga",
 		"Machine",
 		"MedicineBall",
-	];
+	].sort((a, b) => a.localeCompare(b)); // Sort alphabetically
 
 	const [checkedState, setCheckedState] = useState(
 		new Array(filterOptions.length).fill(false) //creates an array as long as filterOption of all false boolean values
@@ -31,11 +29,12 @@ function Filter() {
 		setActiveFilters(filters);
 	}, [checkedState]);
 
-	const handleCheckbox = (position) => {
-		//handle checked state
-		const updatedCheckedState = checkedState.map((item, index) =>
-			index === position ? !item : item
+	const handleCheckbox = (clickedIndex) => {
+		// Toggle the checked status at the clicked index
+		const updatedCheckedState = checkedState.map((isChecked, index) =>
+			index === clickedIndex ? !isChecked : isChecked
 		);
+
 		setCheckedState(updatedCheckedState);
 	};
 
