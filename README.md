@@ -1,24 +1,29 @@
-# React Workout App, paired project
-## View live: https://workout-natedaug.vercel.app/myWorkout
-Tech Stack:
-- React, React Router DOM
+# React Workout App - Paired Project
+
+## View Live
+[Live Demo](https://workout-natedaug.vercel.app/myWorkout)
+
+## Tech Stack
+- React
+- React Router DOM
 - Context API
-- SupaBase
-- TailWinds CSS
-- Functional components w/ Hooks
+- SupaBase (PostgreSQL)
+- Tailwind CSS
+- Functional Components with Hooks
 
-Hits all the React/Dev Common Task:
+## Key Features
 - CRUD operations to SupaBase
-- State Mangement
+- State Management
 - Custom Hooks
-- Routing, Sorting, Portals, Prop Drilling etc.
+- Routing, Sorting, Portals, Prop Drilling, etc.
 
-In Prog:
+## In Progress
 - UI cleanup beyond wireframe
 - Log In & Auth
-- additional features: log date, time, completion storing further user records
-- test in JEST
-- Augment Custom Library, with user added exercises
+- Additional features: log date, time, completion storing further user records
+- Testing in Jest
+- Augment Custom Library with user-added exercises
+
 
 
 # Getting Started with Create React App
